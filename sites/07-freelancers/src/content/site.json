@@ -11,7 +11,7 @@
       "logoText": "Faro",
       "links": ["Início", "Sobre", "Serviços", "Trabalhos", "Contato"],
       "ctas": [
-        { "label": "Agendar conversa", "href": "[TODO]", "style": "primary" },
+        { "label": "Agendar conversa", "href": "#contact-form", "style": "primary" },
         { "label": "Enviar mensagem", "href": "#contact-form", "style": "secondary" }
       ]
     },
@@ -39,19 +39,19 @@
       "id": "gallery",
       "heading": "Veja meus trabalhos",
       "items": [
-        { "title": "[TODO]", "image": { "alt": "Sessão de fotos de produto", "unsplashQuery": "product photography setup" } },
-        { "title": "[TODO]", "image": { "alt": "Personal trainer com aluno", "unsplashQuery": "personal trainer client" } },
-        { "title": "[TODO]", "image": { "alt": "Retrato profissional", "unsplashQuery": "professional headshot" } }
+        { "title": "Catálogo de produtos para loja de cerâmica", "image": { "alt": "Sessão de fotos de produto", "unsplashQuery": "product photography setup" } },
+        { "title": "Programa de treino funcional de 12 semanas", "image": { "alt": "Personal trainer com aluno", "unsplashQuery": "personal trainer client" } },
+        { "title": "Retratos corporativos para escritório de advocacia", "image": { "alt": "Retrato profissional", "unsplashQuery": "professional headshot" } }
       ],
       "link": { "label": "Ver projetos", "href": "/projetos" }
     },
     {
       "id": "about",
       "heading": "Sobre mim",
-      "text": "[TODO]",
+      "text": "Sou Bruno Faro, fotógrafo e consultor independente em Porto Alegre. Há 8 anos ajudo profissionais e pequenos negócios a mostrar seu trabalho com imagens claras e um processo sem complicação.",
       "testimonials": [
-        { "quote": "[TODO]", "author": "[TODO]" },
-        { "quote": "[TODO]", "author": "[TODO]" }
+        { "quote": "Entregou antes do prazo e com uma qualidade acima do que esperávamos.", "author": "Camila Ferraz" },
+        { "quote": "Processo organizado do começo ao fim. Já contratei de novo.", "author": "Diego Matos" }
       ],
       "image": { "alt": "Profissional autônomo em seu espaço de trabalho", "unsplashQuery": "freelancer workspace portrait" }
     },
@@ -67,19 +67,19 @@
       "id": "process",
       "heading": "Processo",
       "steps": [
-        { "number": "1", "title": "Conversa e estratégia" },
-        { "number": "2", "title": "Planejamento" },
-        { "number": "3", "title": "Execução" },
-        { "number": "4", "title": "Entrega" }
+        { "number": "1", "title": "Conversa e estratégia", "text": "Entendo seu objetivo, público e prazo." },
+        { "number": "2", "title": "Planejamento", "text": "Defino escopo, cronograma e orçamento." },
+        { "number": "3", "title": "Execução", "text": "Produzo o trabalho com revisões combinadas." },
+        { "number": "4", "title": "Entrega", "text": "Entrego os arquivos finais e o suporte." }
       ]
     },
     {
       "id": "faq",
       "heading": "Perguntas frequentes",
       "items": [
-        { "q": "Quanto custa?", "a": "[TODO]" },
-        { "q": "Qual o prazo de entrega?", "a": "[TODO]" },
-        { "q": "Atende fora da cidade?", "a": "[TODO]" },
+        { "q": "Quanto custa?", "a": "Projetos a partir de R$ 900. Envio orçamento detalhado após a primeira conversa." },
+        { "q": "Qual o prazo de entrega?", "a": "Em geral de 7 a 15 dias úteis, conforme o escopo." },
+        { "q": "Atende fora da cidade?", "a": "Sim, com custo de deslocamento combinado no orçamento." },
         { "q": "Como agendar?", "a": "Use o botão Agendar conversa ou envie uma mensagem." }
       ]
     },
@@ -88,14 +88,14 @@
       "heading": "Vamos trabalhar juntos",
       "text": "Agende uma conversa ou mande um e-mail.",
       "ctas": [
-        { "label": "Agendar conversa", "href": "[TODO]" },
-        { "label": "Enviar e-mail", "href": "mailto:[TODO]" }
+        { "label": "Agendar conversa", "href": "#contact-form" },
+        { "label": "Enviar e-mail", "href": "mailto:contato@faroestudio.com.br" }
       ]
     },
     {
       "id": "footer",
       "form": { "fields": ["Nome", "E-mail", "Mensagem"], "submit": "Enviar" },
-      "socials": ["LinkedIn", "Instagram", "[TODO]"],
+      "socials": ["LinkedIn", "Instagram", "Behance"],
       "legal": ["Privacidade", "Termos"]
     }
   ]

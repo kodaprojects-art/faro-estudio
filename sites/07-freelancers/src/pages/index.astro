@@ -27,7 +27,7 @@ const banner = sec('cta-banner');
 const footer = sec('footer');
 
 // Inner pages and unknown targets stay on the home page.
-const to = (href: string) => (href.includes('[TODO]') ? '#contact-form' : href === '/projetos' ? '#trabalhos' : href);
+const to = (href: string) => (href === '/projetos' ? '#trabalhos' : href);
 const navHrefs = ['#main', '#sobre', '#services', '#trabalhos', '#contact-form'];
 const navLinks = header.links.map((label: string, i: number) => ({ label, href: navHrefs[i] }));
 const featuredImgs = [work1, work3];
@@ -156,7 +156,7 @@ const fieldTypes = ['text', 'email', 'textarea'] as const;
         <li>
           <span class="process__num" aria-hidden="true">{s.number}</span>
           <h3>{s.title}</h3>
-          <p>[TODO]</p>
+          <p>{s.text}</p>
         </li>
       ))}
     </ol>
@@ -165,7 +165,7 @@ const fieldTypes = ['text', 'email', 'textarea'] as const;
   <section class="faq container" aria-labelledby="faq-title">
     <div>
       <h2 id="faq-title">{faq.heading}</h2>
-      <p class="muted">[TODO]</p>
+      <p class="muted">Não encontrou sua dúvida? Escreva para contato@faroestudio.com.br.</p>
     </div>
     <Accordion items={faq.items.map((f: Section) => ({ question: f.q, answer: f.a }))} />
   </section>
@@ -208,7 +208,7 @@ const fieldTypes = ['text', 'email', 'textarea'] as const;
         {navLinks.map((l: { label: string; href: string }) => <li><a href={l.href}>{l.label}</a></li>)}
       </ul>
       <ul class="footer__socials">
-        {footer.socials.map((s: string) => <li><a href="#main">{s}</a></li>)}
+        {footer.socials.map((s: string) => <li><a href="#">{s}</a></li>)}
       </ul>
       <div class="footer__legal">
         <ul>{footer.legal.map((l: string) => <li><a href="#main">{l}</a></li>)}</ul>
