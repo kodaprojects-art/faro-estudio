@@ -1,0 +1,245 @@
+---
+import '../styles/tokens.css';
+import '../styles/site.css';
+import BaseLayout from '../../../../shared/components/BaseLayout.astro';
+import Accordion from '../../../../shared/components/Accordion.astro';
+import Img from '../../../../shared/components/Img.astro';
+import content from '../content/site.json';
+
+import heroImg from '../assets/hero.jpg';
+import work1 from '../assets/work-1.jpg';
+import work2 from '../assets/work-2.jpg';
+import work3 from '../assets/work-3.jpg';
+import aboutImg from '../assets/about.jpg';
+
+type Section = Record<string, any>;
+const sec = (id: string): Section => content.sections.find((s) => s.id === id) as Section;
+const header = sec('header');
+const hero = sec('hero');
+const featured = sec('featured');
+const services = sec('services');
+const gallery = sec('gallery');
+const about = sec('about');
+const who = sec('who-i-work-with');
+const processS = sec('process');
+const faq = sec('faq');
+const banner = sec('cta-banner');
+const footer = sec('footer');
+
+// Inner pages and unknown targets stay on the home page.
+const to = (href: string) => (href.includes('[TODO]') ? '#contact-form' : href === '/projetos' ? '#trabalhos' : href);
+const navHrefs = ['#main', '#sobre', '#services', '#trabalhos', '#contact-form'];
+const navLinks = header.links.map((label: string, i: number) => ({ label, href: navHrefs[i] }));
+const featuredImgs = [work1, work3];
+const galleryImgs = [work1, work2, work3];
+const fieldTypes = ['text', 'email', 'textarea'] as const;
+---
+
+<BaseLayout title={content.seo.title} description={content.seo.description}>
+  <Fragment slot="head">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'" />
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" /></noscript>
+  </Fragment>
+
+  <header slot="header" class="nav">
+    <div class="nav__bar">
+      <a class="nav__brand" href="#main">{header.logoText}</a>
+      <nav aria-label="Principal">
+        <ul class="nav__links" id="menu-mobile">
+          {navLinks.map((l: { label: string; href: string }) => <li><a href={l.href}>{l.label}</a></li>)}
+          {header.ctas.map((c: Section) => (
+            <li class="nav__menu-cta"><a class:list={['btn', c.style === 'primary' ? 'btn--dark' : 'btn--outline']} href={to(c.href)}>{c.label}</a></li>
+          ))}
+        </ul>
+      </nav>
+      <div class="nav__ctas">
+        {header.ctas.map((c: Section) => (
+          <a class:list={['btn', c.style === 'primary' ? 'btn--dark' : 'btn--outline']} href={to(c.href)}>{c.label}</a>
+        ))}
+      </div>
+      <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="menu-mobile">
+        <span class="visually-hidden">Abrir menu</span>
+        <span class="nav__burger" aria-hidden="true"></span>
+      </button>
+    </div>
+  </header>
+
+  <section class="hero">
+    <Img src={heroImg} alt={hero.image.alt} class="hero__bg" priority sizes="100vw" />
+    <div class="hero__inner">
+      <h1>{hero.heading}</h1>
+      <p class="hero__text">{hero.text}</p>
+    </div>
+  </section>
+
+  <section class="featured container" aria-label="Destaques">
+    {featured.items.map((f: Section, i: number) => (
+      <article class:list={['featured__item', { 'featured__item--flip': i % 2 === 1 }]}>
+        <div class="featured__text">
+          <h2>{f.title}</h2>
+          <p>{f.text}</p>
+          <a class="btn btn--outline btn--sm" href={f.cta.href}>{f.cta.label} <span aria-hidden="true">↓</span></a>
+        </div>
+        <Img src={featuredImgs[i]} alt="" class="featured__img" sizes="(min-width: 810px) 40vw, 100vw" />
+      </article>
+    ))}
+  </section>
+
+  <section class="services" id="services" aria-label="Serviços">
+    <div class="container">
+      {services.groups.map((g: Section) => (
+        <div class="services__group">
+          <h2 class="services__eyebrow">{g.title}</h2>
+          <ul>
+            {g.items.map((item: string) => <li>{item}</li>)}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="gallery container" id="trabalhos" aria-labelledby="trabalhos-title">
+    <p class="eyebrow"><span class="eyebrow__mark" aria-hidden="true"></span>{gallery.heading}</p>
+    <h2 id="trabalhos-title" class="visually-hidden">{gallery.heading}</h2>
+    <ul class="gallery__grid">
+      {gallery.items.map((g: Section, i: number) => (
+        <li>
+          <Img src={galleryImgs[i]} alt={g.image.alt} class="gallery__img" sizes="(min-width: 810px) 33vw, 100vw" />
+          <p class="gallery__title">{g.title}</p>
+        </li>
+      ))}
+    </ul>
+    <div class="gallery__foot">
+      <a href={to(gallery.link.href)}>{gallery.link.label}</a>
+    </div>
+  </section>
+
+  <section class="about container" id="sobre" aria-labelledby="sobre-title">
+    <p class="eyebrow"><span class="eyebrow__mark" aria-hidden="true"></span><span id="sobre-title">{about.heading}</span></p>
+    <div class="about__grid">
+      <p class="about__lead">{about.text}</p>
+      <Img src={aboutImg} alt={about.image.alt} class="about__img" sizes="(min-width: 810px) 15rem, 60vw" />
+    </div>
+    <div class="rotator" aria-live="polite">
+      {about.testimonials.map((t: Section, i: number) => (
+        <figure class="rotator__item" hidden={i !== 0}>
+          <blockquote>“{t.quote}”</blockquote>
+          <figcaption>— {t.author}</figcaption>
+        </figure>
+      ))}
+    </div>
+  </section>
+
+  <section class="who container" aria-labelledby="who-title">
+    <div class="who__card">
+      <Img src={aboutImg} alt="" class="who__bg" sizes="100vw" />
+      <div class="who__inner">
+        <h2 id="who-title">{who.heading}</h2>
+        <div class="who__cols">
+          {who.items.map((w: Section) => (
+            <div>
+              <h3>{w.title}</h3>
+              <p>{w.text}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="process container" aria-labelledby="process-title">
+    <p class="eyebrow"><span class="eyebrow__mark" aria-hidden="true"></span><span id="process-title">{processS.heading}</span></p>
+    <ol class="process__steps">
+      {processS.steps.map((s: Section) => (
+        <li>
+          <span class="process__num" aria-hidden="true">{s.number}</span>
+          <h3>{s.title}</h3>
+          <p>[TODO]</p>
+        </li>
+      ))}
+    </ol>
+  </section>
+
+  <section class="faq container" aria-labelledby="faq-title">
+    <div>
+      <h2 id="faq-title">{faq.heading}</h2>
+      <p class="muted">[TODO]</p>
+    </div>
+    <Accordion items={faq.items.map((f: Section) => ({ question: f.q, answer: f.a }))} />
+  </section>
+
+  <section class="banner" aria-labelledby="banner-title">
+    <Img src={heroImg} alt="" class="banner__bg" sizes="100vw" />
+    <div class="banner__inner">
+      <h2 id="banner-title">{banner.heading}</h2>
+      <p>{banner.text}</p>
+      <div class="banner__ctas">
+        {banner.ctas.map((c: Section, i: number) => (
+          <a class:list={['btn', i === 0 ? 'btn--dark' : 'btn--light']} href={to(c.href)}>{c.label}</a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <footer slot="footer" class="footer">
+    <div class="contact" id="contact-form">
+      <div class="contact__intro">
+        <h2>{banner.heading}</h2>
+        <p>{banner.text}</p>
+        <a class="btn btn--light btn--sm" href={to(banner.ctas[0].href)}>{banner.ctas[0].label}</a>
+      </div>
+      <form class="contact__form" action="#" method="post">
+        {footer.form.fields.map((label: string, i: number) => (
+          <div class="field">
+            <label for={`f-${i}`}>{label}</label>
+            {fieldTypes[i] === 'textarea'
+              ? <textarea id={`f-${i}`} name={`campo-${i}`} rows="5" required></textarea>
+              : <input id={`f-${i}`} name={`campo-${i}`} type={fieldTypes[i] === "email" ? "email" : "text"} required autocomplete={fieldTypes[i] === 'email' ? 'email' : 'name'} />}
+          </div>
+        ))}
+        <button class="btn btn--light btn--sm" type="submit">{footer.form.submit}</button>
+      </form>
+    </div>
+    <div class="footer__card">
+      <p class="nav__brand">{header.logoText}</p>
+      <ul class="footer__nav">
+        {navLinks.map((l: { label: string; href: string }) => <li><a href={l.href}>{l.label}</a></li>)}
+      </ul>
+      <ul class="footer__socials">
+        {footer.socials.map((s: string) => <li><a href="#main">{s}</a></li>)}
+      </ul>
+      <div class="footer__legal">
+        <ul>{footer.legal.map((l: string) => <li><a href="#main">{l}</a></li>)}</ul>
+        <p>© {new Date().getFullYear()} {content.businessName}</p>
+      </div>
+    </div>
+  </footer>
+</BaseLayout>
+
+<script>
+  // Mobile menu
+  const toggle = document.querySelector<HTMLButtonElement>('.nav__toggle')!;
+  const nav = document.querySelector<HTMLElement>('.nav')!;
+  const setMenu = (open: boolean) => {
+    toggle.setAttribute('aria-expanded', String(open));
+    nav.classList.toggle('is-open', open);
+  };
+  toggle.addEventListener('click', () => setMenu(toggle.getAttribute('aria-expanded') !== 'true'));
+  nav.addEventListener('click', (e) => { if ((e.target as Element).closest('.nav__links a')) setMenu(false); });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && nav.classList.contains('is-open')) { setMenu(false); toggle.focus(); }
+  });
+
+  // Testimonial rotator
+  const quotes = [...document.querySelectorAll<HTMLElement>('.rotator__item')];
+  let current = 0;
+  if (quotes.length > 1 && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    setInterval(() => {
+      quotes[current].hidden = true;
+      current = (current + 1) % quotes.length;
+      quotes[current].hidden = false;
+    }, 6000);
+  }
+</script>

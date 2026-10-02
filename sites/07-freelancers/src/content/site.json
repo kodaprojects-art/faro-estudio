@@ -1,0 +1,102 @@
+{
+  "businessName": "Faro Estúdio",
+  "reference": "R4",
+  "seo": {
+    "title": "Faro Estúdio | Profissionais autônomos para empresas e pequenos negócios",
+    "description": "Fotografia, treino personalizado e serviços autônomos sob medida para empresas e pequenos negócios. Agende uma conversa."
+  },
+  "sections": [
+    {
+      "id": "header",
+      "logoText": "Faro",
+      "links": ["Início", "Sobre", "Serviços", "Trabalhos", "Contato"],
+      "ctas": [
+        { "label": "Agendar conversa", "href": "[TODO]", "style": "primary" },
+        { "label": "Enviar mensagem", "href": "#contact-form", "style": "secondary" }
+      ]
+    },
+    {
+      "id": "hero",
+      "heading": "Serviços profissionais com estratégia e resultado",
+      "text": "Atendimento autônomo e personalizado para empresas e pequenos negócios.",
+      "image": { "alt": "Fotógrafo trabalhando em estúdio", "unsplashQuery": "photographer studio working" }
+    },
+    {
+      "id": "featured",
+      "items": [
+        { "title": "Para empresas", "text": "Serviços completos para equipes e marcas.", "cta": { "label": "Saiba mais", "href": "#services" } },
+        { "title": "Para pequenos negócios", "text": "Soluções práticas para quem está crescendo.", "cta": { "label": "Saiba mais", "href": "#services" } }
+      ]
+    },
+    {
+      "id": "services",
+      "groups": [
+        { "title": "Para empresas", "items": ["Fotografia corporativa", "Treinamento para equipes", "Eventos", "Retratos profissionais", "Conteúdo para redes", "Consultoria"] },
+        { "title": "Para pequenos negócios", "items": ["Fotos de produto", "Treino personalizado", "Pacotes mensais"] }
+      ]
+    },
+    {
+      "id": "gallery",
+      "heading": "Veja meus trabalhos",
+      "items": [
+        { "title": "[TODO]", "image": { "alt": "Sessão de fotos de produto", "unsplashQuery": "product photography setup" } },
+        { "title": "[TODO]", "image": { "alt": "Personal trainer com aluno", "unsplashQuery": "personal trainer client" } },
+        { "title": "[TODO]", "image": { "alt": "Retrato profissional", "unsplashQuery": "professional headshot" } }
+      ],
+      "link": { "label": "Ver projetos", "href": "/projetos" }
+    },
+    {
+      "id": "about",
+      "heading": "Sobre mim",
+      "text": "[TODO]",
+      "testimonials": [
+        { "quote": "[TODO]", "author": "[TODO]" },
+        { "quote": "[TODO]", "author": "[TODO]" }
+      ],
+      "image": { "alt": "Profissional autônomo em seu espaço de trabalho", "unsplashQuery": "freelancer workspace portrait" }
+    },
+    {
+      "id": "who-i-work-with",
+      "heading": "Com quem eu trabalho",
+      "items": [
+        { "title": "Empresas", "text": "Equipes que precisam de um parceiro confiável." },
+        { "title": "Pequenos negócios", "text": "Empreendedores que querem crescer com qualidade." }
+      ]
+    },
+    {
+      "id": "process",
+      "heading": "Processo",
+      "steps": [
+        { "number": "1", "title": "Conversa e estratégia" },
+        { "number": "2", "title": "Planejamento" },
+        { "number": "3", "title": "Execução" },
+        { "number": "4", "title": "Entrega" }
+      ]
+    },
+    {
+      "id": "faq",
+      "heading": "Perguntas frequentes",
+      "items": [
+        { "q": "Quanto custa?", "a": "[TODO]" },
+        { "q": "Qual o prazo de entrega?", "a": "[TODO]" },
+        { "q": "Atende fora da cidade?", "a": "[TODO]" },
+        { "q": "Como agendar?", "a": "Use o botão Agendar conversa ou envie uma mensagem." }
+      ]
+    },
+    {
+      "id": "cta-banner",
+      "heading": "Vamos trabalhar juntos",
+      "text": "Agende uma conversa ou mande um e-mail.",
+      "ctas": [
+        { "label": "Agendar conversa", "href": "[TODO]" },
+        { "label": "Enviar e-mail", "href": "mailto:[TODO]" }
+      ]
+    },
+    {
+      "id": "footer",
+      "form": { "fields": ["Nome", "E-mail", "Mensagem"], "submit": "Enviar" },
+      "socials": ["LinkedIn", "Instagram", "[TODO]"],
+      "legal": ["Privacidade", "Termos"]
+    }
+  ]
+}

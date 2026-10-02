@@ -1,0 +1,58 @@
+/* Site 07 tokens: palette/type from shared/tokens/07-freelancers.css (R4); spacing measured on the reference. */
+@import '../../../../shared/tokens/07-freelancers.css';
+
+:root {
+  --color-bg: var(--color-neutral-100);
+  --color-surface: var(--color-neutral-200);
+  --color-dark: var(--color-neutral-950);
+  --color-dark-2: var(--color-neutral-850);
+  --color-text: var(--color-neutral-950);
+  --color-muted: var(--color-neutral-600);
+  --color-muted-dark: var(--color-neutral-400);
+  --color-border: var(--color-neutral-300);
+  --color-primary: var(--color-neutral-950);
+  --color-on-primary: var(--color-neutral-50);
+  --color-accent: #0c8ea9;
+  --color-hero-text: var(--color-neutral-50);
+  --color-focus: #0c8ea9;
+
+  /* Approved Google stand-ins (docs/design/07-freelancers.md) */
+  --font-body: "Manrope", system-ui, sans-serif;
+  --font-heading: var(--font-body);
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.25rem;
+  --text-xl: clamp(1.25rem, 1rem + 0.8vw, 1.6rem);
+  --text-h2: clamp(1.9rem, 1.4rem + 1.6vw, 2.4rem);
+  --text-h1: clamp(2.6rem, 1.5rem + 4vw, 4.6rem);
+  --text-num: clamp(4.5rem, 3rem + 5vw, 7.5rem);
+  --leading-body: 1.4;
+  --leading-heading: 1.05;
+
+  --space-xs: 0.5rem;
+  --space-sm: 0.75rem;
+  --space-md: 1.25rem;
+  --space-lg: 2.5rem;
+  --space-xl: 5rem;
+  --space-section: clamp(4rem, 3rem + 4vw, 7.5rem);
+  --space-gutter: 1.25rem;
+  --container-max: 75rem;
+  --header-height: 4.25rem;
+
+  --border-width: 1px;
+  --radius-button: 999px;
+  --radius-card: var(--radius-md);
+  --radius-panel: var(--radius-md);
+  --radius-input: var(--radius-sm);
+  --focus-width: 2px;
+  --focus-offset: 3px;
+
+  --duration-fast: 200ms;
+  --opacity-hover: 0.8;
+  --z-header: 10;
+  --z-skip: 20;
+}
+
+@media (min-width: 810px) {
+  :root { --space-gutter: 3.5rem; }
+}
